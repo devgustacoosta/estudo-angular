@@ -1,0 +1,13 @@
+{
+  "/api/**": {
+    "target": "http://127.0.0.1:3000",
+    "changeOrigin": true
+  },
+  "/remote/**": {
+    "target": "http://127.0.0.1:4201",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/remote": ""
+    }
+  }
+}

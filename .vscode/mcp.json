@@ -1,0 +1,11 @@
+{
+  "servers": {
+    "angular-cli": {
+      "command": "npx",
+      "args": [
+        "ng",
+        "mcp"
+      ]
+    }
+  }
+}

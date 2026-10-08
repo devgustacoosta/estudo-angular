@@ -1,0 +1,18 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Iniciar portal completo",
+      "type": "npm",
+      "script": "start",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Verificar portal",
+      "type": "npm",
+      "script": "verify",
+      "problemMatcher": []
+    }
+  ]
+}

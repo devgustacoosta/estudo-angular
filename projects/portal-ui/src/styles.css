@@ -1,0 +1,505 @@
+:root {
+  color-scheme: light;
+  --ink: #172c2a;
+  --muted: #506864;
+  --brand: #17654f;
+  --border: #d9e3dd;
+  --paper: #fff;
+  --bg: #f3f6f2;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+a {
+  color: var(--brand);
+  text-underline-offset: 4px;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button,
+.cart-link {
+  border: 1px solid var(--brand);
+  border-radius: 8px;
+  background: var(--brand);
+  color: #fff;
+  padding: 0.72rem 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+button:hover {
+  background: #104b3b;
+}
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #af5d18;
+  outline-offset: 4px;
+}
+input,
+select {
+  width: 100%;
+  border: 1px solid #9eafa4;
+  background: #fff;
+  border-radius: 7px;
+  padding: 0.8rem;
+  margin: 0.4rem 0 1rem;
+  color: var(--ink);
+}
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  flex-shrink: 0;
+}
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: -0.04em;
+  margin: 0.3rem 0;
+}
+h2 {
+  font-size: 1.25rem;
+}
+h3 {
+  font-size: 1.1rem;
+}
+p {
+  line-height: 1.65;
+  color: var(--muted);
+}
+small {
+  color: var(--muted);
+}
+header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.1rem max(1.5rem, calc((100vw - 1180px) / 2));
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand > span:first-child {
+  background: var(--brand);
+  color: #fff;
+  border-radius: 8px;
+  padding: 5px 12px;
+  margin-right: 7px;
+}
+.brand-light {
+  font-weight: 400;
+}
+header nav {
+  display: flex;
+  gap: 1.3rem;
+  flex: 1;
+}
+header nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+header nav a.active {
+  color: var(--brand);
+  border-bottom: 2px solid var(--brand);
+  padding-bottom: 5px;
+}
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.cart-link {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+.cart-link b {
+  background: #d2eddb;
+  color: #154c3c;
+  border-radius: 20px;
+  min-width: 24px;
+  padding: 1px 7px;
+}
+.header-actions > button {
+  background: white;
+  color: var(--ink);
+  border-color: var(--border);
+}
+.app-container {
+  max-width: 1180px;
+  padding: 0 1.5rem;
+  margin: auto;
+}
+.context-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+main {
+  padding: 2rem 0;
+  min-height: 70vh;
+  outline: none;
+}
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.3rem;
+}
+.page-heading small {
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--brand);
+}
+.page-heading p {
+  margin: 0.6rem 0;
+}
+.badge {
+  background: #e1eadf;
+  border-radius: 30px;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+}
+.filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  background: white;
+  padding: 1.2rem 1.3rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+.filters input,
+.filters select {
+  margin-bottom: 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+.product {
+  padding: 1.3rem;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.product-icon {
+  background: #eff3eb;
+  border-radius: 8px;
+  font-size: 3.5rem;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  height: 140px;
+  margin-bottom: 1rem;
+  color: #45654f;
+}
+.product h3 {
+  margin: 0.6rem 0;
+}
+.product strong {
+  font-size: 1.3rem;
+}
+.product p {
+  font-size: 0.85rem;
+  margin: 0.5rem 0 1rem;
+}
+.product ui-button {
+  margin-top: auto;
+}
+.product button {
+  width: 100%;
+}
+.pagination {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.pagination button {
+  background: white;
+  color: var(--brand);
+}
+.panel {
+  border: 1px solid var(--border);
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+}
+.login {
+  max-width: 480px;
+  margin: auto;
+}
+.login > small {
+  letter-spacing: 0.1em;
+  color: var(--brand);
+}
+.login h1 {
+  font-size: 2rem;
+}
+.login form button {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.demo {
+  border-top: 1px solid var(--border);
+  margin-top: 1.5rem;
+  padding-top: 0.5rem;
+}
+.demo button {
+  background: #edf3ed;
+  color: var(--brand);
+  margin: 0 0.5rem 0.5rem 0;
+  font-size: 0.85rem;
+}
+.demo p {
+  font-size: 0.85rem;
+}
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 1rem 0;
+}
+.cart-row {
+  border-bottom: 1px solid var(--border);
+  padding: 0.7rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.cart-row > div {
+  flex: 1;
+}
+.cart-row label {
+  font-size: 0.75rem;
+  max-width: 140px;
+}
+.cart-row input {
+  width: 80px;
+  margin: 0.3rem 0;
+}
+.cart-row button {
+  background: white;
+  color: var(--brand);
+  padding: 0.4rem;
+  font-size: 0.8rem;
+}
+.cart-row p {
+  margin: 0;
+}
+.totals {
+  padding-top: 0.8rem;
+}
+.totals p {
+  display: flex;
+  justify-content: space-between;
+}
+.totals p:last-child {
+  font-size: 1.3rem;
+  color: var(--ink);
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+.state {
+  background: #e3eee5;
+  color: #184f3b;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.error {
+  color: #a02727;
+}
+.state.error {
+  background: #fff0ee;
+}
+.order-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.metrics .panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.metrics strong {
+  font-size: 1.8rem;
+}
+.total {
+  font-size: 1.5rem;
+  color: var(--ink);
+}
+dialog {
+  max-width: 480px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.6rem;
+  box-shadow: 0 16px 70px #172c2a44;
+}
+dialog::backdrop {
+  background: #10272299;
+}
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  flex-wrap: wrap;
+}
+details {
+  margin-top: 0.6rem;
+  max-width: 100%;
+}
+summary {
+  cursor: pointer;
+}
+code {
+  word-break: break-all;
+  font-size: 0.8rem;
+}
+.skip {
+  position: fixed;
+  top: -80px;
+  left: 15px;
+  background: white;
+  padding: 1rem;
+  z-index: 100;
+}
+.skip:focus {
+  top: 12px;
+}
+ui-field {
+  display: block;
+}
+ui-confirm {
+  display: contents;
+}
+@media (max-width: 850px) {
+  header {
+    gap: 1rem;
+    padding: 1rem;
+  }
+  header nav {
+    order: 3;
+    flex-basis: 100%;
+  }
+  .header-actions {
+    margin-left: auto;
+  }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+  .metrics strong {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 540px) {
+  .app-container {
+    padding: 0 1rem;
+  }
+  .grid,
+  .filters,
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+  .header-actions {
+    gap: 0.5rem;
+  }
+  .cart-link span {
+    display: none;
+  }
+  .context-bar {
+    font-size: 0.7rem;
+  }
+  .page-heading {
+    align-items: start;
+  }
+  .pagination {
+    gap: 0.7rem;
+    font-size: 0.8rem;
+  }
+  .product-icon {
+    height: 120px;
+  }
+  .order-row {
+    align-items: start;
+  }
+  footer {
+    display: block;
+  }
+}
